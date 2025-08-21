@@ -1,86 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Nathakhun Wiroonsri — Homepage</title>
-<meta name="description" content="Under Construction. Please visit https://sites.google.com/view/nwiroonsri/" />
-<meta name="theme-color" content="#ffffff" />
-<style>
-:root{
---bg: #ffffff;
---text: #1f2937; /* near-slate-800 */
---muted: #6b7280; /* gray-500 */
---silver: #c0c0c0;
---silver-200: #e5e7eb; /* light border */
---accent: #b8b8b8; /* subtle hover */
---ring: rgba(192,192,192,0.55);
---radius: 16px;
---shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.06);
-}
-html, body { height: 100%; }
-body{
-margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-background: var(--bg); color: var(--text);
-line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-}
-.container{ max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
-header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom: 28px; }
-.brand{ display:flex; align-items:center; gap:12px; }
-.avatar{ width:44px; height:44px; border-radius:50%; background: linear-gradient(135deg, #f8fafc, #eee); border:1px solid var(--silver-200); box-shadow: var(--shadow); }
-.name{ font-weight:600; letter-spacing:0.2px; }
-.muted{ color: var(--muted); font-size: 0.95rem; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Homepage</title>
+  <meta name="description" content="Personal academic homepage" />
+  <meta name="theme-color" content="#ffffff" />
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #1f2937; /* near-slate-800 */
+      --muted: #6b7280; /* gray-500 */
+      --silver: #c0c0c0;
+      --silver-200: #e5e7eb; /* light border */
+      --accent: #b8b8b8; /* subtle hover */
+      --ring: rgba(192,192,192,0.55);
+      --radius: 16px;
+      --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 24px rgba(0,0,0,0.06);
+    }
+    html, body { height: 100%; }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg); color: var(--text);
+      line-height: 1.6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    .container{ max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+    header{ display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom: 28px; }
+    .brand{ display:flex; align-items:center; gap:12px; }
+    .avatar{ width:44px; height:44px; border-radius:50%; background: linear-gradient(135deg, #f8fafc, #eee); border:1px solid var(--silver-200); box-shadow: var(--shadow); }
+    .name{ font-weight:600; letter-spacing:0.2px; }
+    .muted{ color: var(--muted); font-size: 0.95rem; }
 
+    /* Tabs */
+    .tabs{
+      display:flex; gap:8px; flex-wrap:wrap; padding: 6px; border:1px solid var(--silver-200); border-radius: calc(var(--radius) + 6px);
+      background: #fafafa;
+    }
+    .tab{
+      appearance:none; border:none; background: transparent; padding:10px 14px; border-radius: var(--radius);
+      color: var(--text); cursor:pointer; font-weight:500; letter-spacing:0.2px;
+      transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    }
+    .tab:hover{ background: #f5f5f5; }
+    .tab[aria-selected="true"]{
+      background: white; box-shadow: var(--shadow); outline: 2px solid transparent; border:1px solid var(--silver-200);
+    }
+    .tab:focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px; }
 
-/* Tabs */
-.tabs{
-display:flex; gap:8px; flex-wrap:wrap; padding: 6px; border:1px solid var(--silver-200); border-radius: calc(var(--radius) + 6px);
-background: #fafafa;
-}
-.tab{
-appearance:none; border:none; background: transparent; padding:10px 14px; border-radius: var(--radius);
-color: var(--text); cursor:pointer; font-weight:500; letter-spacing:0.2px;
-transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-}
-.tab:hover{ background: #f5f5f5; }
-.tab[aria-selected="true"]{
-background: white; box-shadow: var(--shadow); outline: 2px solid transparent; border:1px solid var(--silver-200);
-}
-.tab:focus-visible{ outline: 3px solid var(--ring); outline-offset: 2px; }
+    /* Panels */
+    .panel{ display:none; padding: 22px; border:1px solid var(--silver-200); border-radius: var(--radius); background:white; box-shadow: var(--shadow); margin-top: 14px; }
+    .panel.active{ display:block; }
 
+    /* Typo */
+    h1{ font-size: 1.5rem; margin: 0; }
+    h2{ font-size: 1.15rem; margin: 0 0 10px; }
+    h3{ font-size: 1rem; margin: 16px 0 6px; }
+    a{ color: inherit; text-decoration: none; border-bottom: 1px solid var(--silver); }
+    a:hover{ background: #f8f8f8; }
+    ul{ padding-left: 18px; margin: 8px 0; }
+    li{ margin: 4px 0; }
+    .grid{ display:grid; grid-template-columns: 1fr; gap:16px; }
+    @media (min-width: 720px){ .grid{ grid-template-columns: 1fr 1fr; } }
 
-/* Panels */
-.panel{ display:none; padding: 22px; border:1px solid var(--silver-200); border-radius: var(--radius); background:white; box-shadow: var(--shadow); margin-top: 14px; }
-.panel.active{ display:block; }
-
-
-/* Typo */
-h1{ font-size: 1.5rem; margin: 0; }
-h2{ font-size: 1.15rem; margin: 0 0 10px; }
-h3{ font-size: 1rem; margin: 16px 0 6px; }
-a{ color: inherit; text-decoration: none; border-bottom: 1px solid var(--silver); }
-a:hover{ background: #f8f8f8; }
-ul{ padding-left: 18px; margin: 8px 0; }
-li{ margin: 4px 0; }
-.grid{ display:grid; grid-template-columns: 1fr; gap:16px; }
-@media (min-width: 720px){ .grid{ grid-template-columns: 1fr 1fr; } }
-
-
-/* Footer */
-footer{ margin-top: 40px; color: var(--muted); font-size: 0.9rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-.social{ display:flex; gap:12px; align-items:center; }
-.badge{ border:1px solid var(--silver-200); border-radius: 999px; padding: 6px 10px; background: #fff; }
-</style>
+    /* Footer */
+    footer{ margin-top: 40px; color: var(--muted); font-size: 0.9rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .social{ display:flex; gap:12px; align-items:center; }
+    .badge{ border:1px solid var(--silver-200); border-radius: 999px; padding: 6px 10px; background: #fff; }
+  </style>
 </head>
 <body>
-<div class="container">
-<header>
-<div class="brand">
-<div class="avatar" aria-hidden="true"></div>
-<div>
-<div class="name">Your Name</div>
-<div class="muted">Statistics & Data Science • Bangkok, Thailand</div>
-</div>
-</div>
-<nav class="tabs" role="tablist" aria-label="Primary">
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="avatar" aria-hidden="true"></div>
+        <div>
+          <div class="name">Your Name</div>
+          <div class="muted">Statistics & Data Science • Bangkok, Thailand</div>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Primary">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-home" id="tab-home">Home</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-education" id="tab-education">Education</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-publication" id="tab-publication">Publication</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-teaching" id="tab-teaching">Teaching</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-contact" id="tab-contact">Contact</button>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="panel active" id="panel-home" role="tabpanel" aria-labelledby="tab-home">
+      <h2>Welcome</h2>
+      <p>
+        I'm <strong>Your Name</strong>, a lecturer and data scientist focusing on stochastic processes, applied statistics, and reproducible research.
+        This is my minimal academic homepage. Use the tabs above to learn more.
+      </p>
+      <div class="grid">
+        <div>
+          <h3>Current</h3>
+          <ul>
+            <li>Lecturer, Department of XYZ, University of ABC</li>
+            <li>Research interests: time series, Bayesian methods, statistical learning</li>
+            <li>Maintainer of <a href="#">firstbyteDS</a> tutorials</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Highlights</h3>
+          <ul>
+            <li>New paper on [topic], 2025</li>
+            <li>Graduate course: Stochastic Processes (Spring 2025)</li>
+            <li>Open-source: R packages for teaching & reproducibility</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="panel" id="panel-education" role="tabpanel" aria-labelledby="tab-education">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>Ph.D.</strong> in Statistics, University, Year — Dissertation: “Title”</li>
+        <li><strong>M.S.</strong> in Applied Statistics, University, Year</li>
+        <li><strong>B.S.</strong> in Mathematics, University, Year</li>
+      </ul>
+    </section>
+
+    <!-- Publication -->
+    <section class="panel" id="panel-publication" role="tabpanel" aria-labelledby="tab-publication">
+      <h2>Selected Publications</h2>
+      <ol>
+        <li>Author, Author (2025). <em>Paper Title</em>. Journal Name. <a href="#">DOI</a></li>
+        <li>Author, Author (2024). <em>Paper Title</em>. Journal Name. <a href="#">DOI</a></li>
+        <li>Author (2023). <em>Preprint Title</em>. arXiv:xxxx.xxxxx. <a href="#">PDF</a></li>
+      </ol>
+      <p class="muted">Tip: Keep to 5–10 items here; link to a full list on Google Scholar or ORCID.</p>
+    </section>
+
+    <!-- Teaching -->
+    <section class="panel" id="panel-teaching" role="tabpanel" aria-labelledby="tab-teaching">
+      <h2>Teaching</h2>
+      <div>
+        <h3>Graduate: Stochastic Processes</h3>
+        <ul>
+          <li>Syllabus: <a href="#">PDF</a></li>
+          <li>Lecture notes: <a href="#">Notebook</a></li>
+          <li>Office hours: Tue 13:00–15:00</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Undergraduate: Intro to R Programming</h3>
+        <ul>
+          <li>Course site: <a href="#">firstbyte_ds</a></li>
+          <li>Assignments: <a href="#">GitHub Classroom</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="panel" id="panel-contact" role="tabpanel" aria-labelledby="tab-contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noreferrer noopener">@yourusername</a></p>
+      <p>Google Scholar: <a href="#" target="_blank" rel="noreferrer noopener">Profile</a></p>
+      <p>Office: Building • Room • University • Bangkok</p>
+    </section>
+
+    <footer>
+      <div class="social">
+        <span class="badge">GitHub Pages</span>
+        <span class="badge">Minimal • White & Silver</span>
+      </div>
+      <div>© <span id="year"></span> Your Name</div>
+    </footer>
+  </div>
+
+  <script>
+    // Tab logic with a11y semantics and hash support
+    const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
+
+    function activate(id){
+      tabs.forEach(t => {
+        const selected = t.getAttribute('aria-controls') === id;
+        t.setAttribute('aria-selected', selected);
+        if(selected) t.focus({preventScroll:true});
+      });
+      panels.forEach(p => p.classList.toggle('active', p.id === id));
+      const tab = tabs.find(t => t.getAttribute('aria-controls') === id);
+      if(tab){ history.replaceState(null, '', `#${id.replace('panel-','')}`); }
+    }
+
+    // Click to activate
+    tabs.forEach(t => t.addEventListener('click', () => activate(t.getAttribute('aria-controls'))));
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if(!tabs.includes(document.activeElement)) return;
+      const i = tabs.indexOf(document.activeElement);
+      if(e.key === 'ArrowRight'){ e.preventDefault(); tabs[(i+1)%tabs.length].click(); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); tabs[(i-1+tabs.length)%tabs.length].click(); }
+      if(e.key === 'Home'){ e.preventDefault(); tabs[0].click(); }
+      if(e.key === 'End'){ e.preventDefault(); tabs[tabs.length-1].click(); }
+    });
+
+    // Hash routing: #home, #education, etc.
+    const hash = location.hash.replace('#','');
+    if(hash && document.getElementById(`panel-${hash}`)){
+      activate(`panel-${hash}`);
+    }
+
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
